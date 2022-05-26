@@ -9,19 +9,18 @@ def change():
     paid = Decimal(input("Amount Paid: £"))
     change = Decimal(10) - Decimal(paid)
 
-    print ("Change due: £", Decimal(change))
+    print ("Change due: £", change)
     print ("Hand the customer: ")
 
     denoms = map(Decimal, ('5.00', '2.00', '1.00', '0.50', '0.20', '0.10', '0.05', '0.02', '0.01'))
 
-    remain = change
 
     for denom in denoms:
 
-        thisdenom, remain = divmod(remain, denom)
-
+        thisdenom, change = divmod(change, denom)
         if thisdenom > 0:
-             print ("{} x £ {}".format(thisdenom, denom))
+            print (str(thisdenom) + " x £ " + str(denom))    
+
             
 change()
 
